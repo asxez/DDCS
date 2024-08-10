@@ -2,6 +2,8 @@
 
 DDCS，全称Docker Desktop Chinese Script，即Docker汉化脚本。
 
+<big>**你可以在这个仓库找到各个版本的汉化包：【 https://github.com/asxez/DockerDesktop-CN 】**</big>
+
 ## 说明
 汉化过程仅需13s（20颗cpu核心）即可完成（具体耗时以运行结果为准）。
 
