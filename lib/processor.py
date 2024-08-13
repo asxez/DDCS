@@ -10,10 +10,11 @@ import multiprocessing
 import os
 import re
 import shutil
+import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
+
 from common import log
-import subprocess
 
 
 def run_as_admin():
