@@ -35,14 +35,14 @@ class DDProcessor:
         self.docker_install_path = self.get_install_path() if self.get_install_path() is not None else sys.exit()
         if self.get:
             log.info('正在备份文件...')
-            self.cp_asar(True)
+            self.cp_asar(self.get)
             log.info('开始解包...')
             self.extract_asar()
         else:
             log.info('开始打包...')
             self.pack_asar()
             log.info('正在替换文件...')
-            self.cp_asar(False)
+            self.cp_asar(self.get)
             log.info('汉化完成')
 
     @staticmethod
@@ -69,7 +69,8 @@ class DDProcessor:
             else:
                 os.remove(f'{self.docker_install_path}/frontend/resources/app.asar')
                 shutil.copy(f'{os.getcwd()}/app.asar', f'{self.docker_install_path}/frontend/resources')
-        except:
+        except Exception as e:
+            log.error(f"文件复制时出错: {str(e)}")
             sys.exit()
 
     @staticmethod
@@ -77,7 +78,7 @@ class DDProcessor:
         flag = os.system('asar extract app.asar app')
         if flag == 1:
             log.error('执行解包命令出错，即将退出')
-            exit()
+            sys.exit()
         else:
             log.info('解包成功')
 
@@ -86,7 +87,7 @@ class DDProcessor:
         flag = os.system('asar pack app app.asar')
         if flag == 1:
             log.error('执行打包命令出错，即将退出')
-            exit()
+            sys.exit()
         else:
             log.info('打包成功')
 
