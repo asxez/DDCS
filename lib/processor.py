@@ -37,19 +37,23 @@ def command_exists(command):
         return False
 
 class DDProcessor:
+    """
+    extract_asar函数和pack_asar函数存在较大的问题，但是勉强可以使用，有想法的可以提一下。
+    """
+
     def __init__(self, get=True):
         self.get = get
         self.docker_install_path = self.get_install_path() if self.get_install_path() is not None else sys.exit()
         if self.get:
             log.info('正在备份文件...')
-            self.cp_asar(True)
+            self.cp_asar(self.get)
             log.info('开始解包...')
             self.extract_asar()
         else:
             log.info('开始打包...')
             self.pack_asar()
             log.info('正在替换文件...')
-            self.cp_asar(False)
+            self.cp_asar(self.get)
             log.info('汉化完成')
 
     @staticmethod
