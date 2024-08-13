@@ -2,6 +2,8 @@
 
 DDCS，全称Docker Desktop Chinese Script，即Docker汉化脚本。
 
+MAC版本请切换到MAC分支。
+
 <big>**你可以在这个仓库找到各个版本的汉化包：【 https://github.com/asxez/DockerDesktop-CN 】**</big>
 
 ## 说明
@@ -23,6 +25,8 @@ python ddcs.py
 注意：请务必使用管理员权限启动终端。
 
 ## 更新历史
+2024.8.13 发布MAC版本
+
 2024.8.10 发布首个汉化脚本版本。
 
 ## Stars
