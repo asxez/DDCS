@@ -10,7 +10,7 @@
     },
     {
       "src": "label:\"Volumes\"",
-      "dest": "label:\"卷\""
+      "dest": "label:\"卷柜\""
     },
     {
       "src": "label:\"Builds\"",
@@ -18,11 +18,163 @@
     },
     {
       "src": "label:\"Docker Scout\"",
-      "dest": "label:\"Docker 监控\""
+      "dest": "label:\"监控\""
+    },
+    {
+      "src": "title:\"Containers\"",
+      "dest": "title:\"容器\""
+    },
+    {
+      "src": "title:\"Images\"",
+      "dest": "title:\"镜像\""
+    },
+    {
+      "src": "title:\"Volumes\"",
+      "dest": "title:\"卷柜\""
+    },
+    {
+      "src": "title:\"Builds\"",
+      "dest": "title:\"构建\""
+    },
+    {
+      "src": "title:\"Docker Scout\"",
+      "dest": "title:\"监控\""
+    },
+    {
+      "src": "children:\"Containers\"",
+      "dest": "children:\"容器\""
+    },
+    {
+      "src": "children:\"Images\"",
+      "dest": "children:\"镜像\""
+    },
+    {
+      "src": "children:\"Volumes\"",
+      "dest": "children:\"卷柜\""
+    },
+    {
+      "src": "children:\"Builds\"",
+      "dest": "children:\"构建\""
+    },
+    {
+      "src": "children:\"Docker Scout\"",
+      "dest": "children:\"监控\""
+    },
+    {
+      "src": "children:\"Walkthroughs\"",
+      "dest": "children:\"演练\""
+    },
+    {
+      "src": "\"Extensions\"",
+      "dest": "\"扩展\""
+    },
+    {
+      "src": "\"My Extensions\",",
+      "dest": "\"我的扩展\","
+    },
+    {
+      "src": "\"Manage Extensions\":\"Extensions Marketplace\"",
+      "dest": "\"管理扩展\":\"扩展市场\""
+    },
+    {
+      "src": "title:\"Add Extensions\"",
+      "dest": "title:\"添加扩展\""
+    },
+    {
+      "src": "title:\"No extensions installed yet\",content:\"You can install extensions from the marketplace.\"",
+      "dest": "title:\"尚未安装任何扩展\",content:\"您可以从扩展市场安装扩展。\""
+    },
+    {
+      "src": "children:\"Start building your extension with the following command:\"",
+      "dest": "children:\"使用以下命令开始构建扩展：\""
+    },
+    {
+      "src": "children:\"If you've already built an extension, tell us about your experience\"",
+      "dest": "children:\"如果您已经构建了扩展程序，请告诉我们您的体验\""
+    },
+    {
+      "src": "description:\"Docker Extensions let you use third-party tools within Docker Desktop to extend its functionality.\"",
+      "dest": "description:\"Docker扩展 允许您在 Docker Desktop 中使用第三方工具来扩展其功能。\""
+    },
+    {
+      "src": "label:\"Enable Docker Extensions\"",
+      "dest": "label:\"启用 Docker 扩展\""
+    },
+    {
+      "src": "children:\"Turning this option off will uninstall all extensions and disable all extension features.\"",
+      "dest": "children:\"关闭此选项将卸载所有扩展并禁用所有扩展功能。\""
+    },
+    {
+      "src": "label:\"Allow only extensions distributed through the Docker Marketplace\"",
+      "dest": "label:\"仅允许通过 Docker Marketplace 分发的扩展\""
+    },
+    {
+      "src": "children:\"This will prevent the ability to install any other extension via the Extension SDK tools.\"",
+      "dest": "children:\"这将阻止通过扩展 SDK 工具安装任何其他扩展。\""
+    },
+    {
+      "src": "label:\"Browse\"",
+      "dest": "label:\"浏览\""
+    },
+    {
+      "src": "label:\"Create\"",
+      "dest": "label:\"创建\""
+    },
+    {
+      "src": "label:\"Settings\"",
+      "dest": "label:\"设置\""
+    },
+    {
+      "src": "children:\"Create\"",
+      "dest": "children:\"创建\""
+    },
+    {
+      "src": "c=\"Browse\"",
+      "dest": "c=\"浏览\""
+    },
+    {
+      "src": "u=\"Manage\"",
+      "dest": "u=\"管理\""
+    },
+    {
+      "src": "label:\"Show Docker Extensions system containers\"",
+      "dest": "label:\"显示 Docker 扩展系统容器\""
+    },
+    {
+      "src": "children:\"Show Docker Desktop Extensions internal containers when using Docker commands.\"",
+      "dest": "children:\"使用 Docker 命令时显示 Docker Desktop 扩展 内部容器。\""
+    },
+    {
+      "src": "\"Container CPU usage\"",
+      "dest": "\"容器CPU使用率\""
+    },
+    {
+      "src": "\"Container memory usage\"",
+      "dest": "\"容器内存使用率\""
+    },
+    {
+      "src": "\"No containers are running.\"",
+      "dest": "\"没有容器在运行。\""
+    },
+    {
+      "src": "\"Only show running containers\"",
+      "dest": "\"只显示运行中的容器\""
     },
     {
       "src": "title:\"Your running containers show up here\"",
       "dest": "title:\"正在运行的容器将显示在此处\""
+    },
+    {
+      "src": "title:\"Columns\"",
+      "dest": "title:\"列\""
+    },
+    {
+      "src": "\"Show charts\"",
+      "dest": "\"显示图表\""
+    },
+    {
+      "src": "\"Resource usage\"",
+      "dest": "\"资源利用\""
     },
     {
       "src": "description:\"A container is an isolated environment for your code\"",
@@ -37,12 +189,12 @@
       "dest": "title:\"镜像用于运行容器\",description:\"您可以从 Dockerfile 构建镜像，也可以下载现有镜像以运行\",buttonTitle:\"搜索要运行的镜像\""
     },
     {
-      "src": "\"data-testid\":\"Local\"",
-      "dest": "\"data-testid\":\"本地\""
+      "src": "label:b,value:\"local\"",
+      "dest": "label:\"本地\",value:\"local\""
     },
     {
-      "src": "\"data-testid\":\"Hub\"",
-      "dest": "\"data-testid\":\"中心\""
+      "src": "label:\"Hub\",value:\"hub\"",
+      "dest": "label:\"中心\",value:\"hub\""
     },
     {
       "src": "children:\"Not connected\"",
@@ -70,7 +222,7 @@
     },
     {
       "src": "title:\"Containers can use volumes to store data\",description:\"All data in a container is lost once it is removed. Containers use volumes to persist data.\",buttonTitle:\"Create a volume\"",
-      "dest": "title:\"容器可以使用卷来存储数据\",description:\"容器中的所有数据一旦被删除，就会丢失。容器使用卷来持久保存数据。\",buttonTitle:\"创建卷\""
+      "dest": "title:\"容器可以使用卷柜来存储数据\",description:\"容器中的所有数据一旦被删除，就会丢失。容器使用卷柜来持久保存数据。\",buttonTitle:\"创建卷柜\""
     },
     {
       "src": "Build container images and artifacts from source code.",
@@ -89,8 +241,8 @@
       "dest": "title:\"构建历史\""
     },
     {
-      "src": "children:\\[\"Active builds\"",
-      "dest": "children:\\[\"活跃的构建器\""
+      "src": "\"Active builds\",M.length>0",
+      "dest": "\"活跃构建\",M.length>0"
     },
     {
       "src": "title:\"No build record found\"",
@@ -117,42 +269,6 @@
       "dest": "了解应用程序的依赖关系，分析漏洞，并根据建议的补救选项快速采取行动。"
     },
     {
-      "src": "title:\"Add Extensions\"",
-      "dest": "title:\"添加扩展\""
-    },
-    {
-      "src": "primary:\"Browse\"",
-      "dest": "primary:\"浏览\""
-    },
-    {
-      "src": "primary:\"Manage\"",
-      "dest": "primary:\"管理\""
-    },
-    {
-      "src": "primary:\"Create\"",
-      "dest": "primary:\"创建\""
-    },
-    {
-      "src": "primary:\"Settings\"",
-      "dest": "primary:\"设置\""
-    },
-    {
-      "src": "title:\"No extensions installed yet\",content:\"You can install extensions from the marketplace.\"",
-      "dest": "title:\"尚未安装任何扩展\",content:\"您可以从扩展市场安装扩展。\""
-    },
-    {
-      "src": "description:\"Docker Extensions let you use third-party tools within Docker Desktop to extend its functionality.\"",
-      "dest": "description:\"Docker扩展 允许您在 Docker Desktop 中使用第三方工具来扩展其功能。\""
-    },
-    {
-      "src": "children:\"Start building your extension with the following command:\"",
-      "dest": "children:\"使用以下命令开始构建扩展：\""
-    },
-    {
-      "src": "children:\"If you've already built an extension, tell us about your experience\"",
-      "dest": "children:\"如果您已经构建了扩展程序，请告诉我们您的体验\""
-    },
-    {
       "src": "label:\"General\"",
       "dest": "label:\"常规\""
     },
@@ -173,10 +289,6 @@
       "dest": "label:\"软件更新\""
     },
     {
-      "src": "label:\"Extensions\"",
-      "dest": "label:\"扩展\""
-    },
-    {
       "src": "label:\"Features in development\"",
       "dest": "label:\"开发中的功能\""
     },
@@ -187,6 +299,10 @@
     {
       "src": "label:\"Advanced\"",
       "dest": "label:\"高级\""
+    },
+    {
+      "src": "label:\"File sharing\"",
+      "dest": "label:\"共享\""
     },
     {
       "src": "label:\"Proxies\"",
@@ -206,11 +322,11 @@
     },
     {
       "src": "label:\"Open Docker Dashboard when Docker Desktop starts\"",
-      "dest": "label:\"Docker Desktop 启动时打开 Docker 面板\""
+      "dest": "label:\"启动时打开 Docker 面板\""
     },
     {
       "src": "children:\"Choose theme for Docker Desktop\"",
-      "dest": "children:\"为 Docker Desktop 选择主题\""
+      "dest": "children:\"选择应用主题\""
     },
     {
       "src": "label:\"Light\"",
@@ -223,6 +339,42 @@
     {
       "src": "label:\"Use system settings\"",
       "dest": "label:\"跟随系统\""
+    },
+    {
+      "src": "\"Enable Docker terminal\"",
+      "dest": "\"启用 Docker 终端\""
+    },
+    {
+      "src": "\"Active subscription required.\"",
+      "dest": "\"需要激活订阅。\""
+    },
+    {
+      "src": "\"Include VM in Time Machine backups\"",
+      "dest": "\"将 VM 包含在时间机器备份中\""
+    },
+    {
+      "src": "\"Use Rosetta for x86_64/amd64 emulation on Apple Silicon\"",
+      "dest": "\"使用 Rosetta 在 Arm64 芯片上进行 x86_64/amd64 仿真\""
+    },
+    {
+      "src": "\"Use Virtualization framework\"",
+      "dest": "\"使用虚拟化框架\""
+    },
+    {
+      "src": "\"Uses Virtualization framework for creating and managing Docker Desktop Linux VM in macOS 12.5 and above.\"",
+      "dest": "\"在macOS 12.5及更高版本中，使用虚拟化框架创建和管理Docker Desktop Linux VM。\""
+    },
+    {
+      "src": "\"Choose file sharing implementation for your containers\"",
+      "dest": "\"容器文件共享实现选择\""
+    },
+    {
+      "src": "\"Automatically check configuration\"",
+      "dest": "\"自动检查配置\""
+    },
+    {
+      "src": "\"Regularly checks your configuration to ensure no unexpected changes have been made by another application.\"",
+      "dest": "\"定期检查您的配置，以确保其他应用程序没有进行意外更改。\""
     },
     {
       "src": "children:\"Choose container terminal\"",
@@ -409,8 +561,8 @@
       "dest": "children:\"这可能会阻止 Docker 启动。使用风险自负。\""
     },
     {
-      "src": "variant:\"h4\",children:\"Selected builder\"",
-      "dest": "variant:\"h4\",children:\"选中的构建器\""
+      "src": "children:\"Selected builder\"",
+      "dest": "children:\"选中的构建器\""
     },
     {
       "src": "The default builder used when you start a build.",
@@ -423,6 +575,10 @@
     {
       "src": "Inspect and manage your builders.",
       "dest": "检查和管理您的构建器。"
+    },
+    {
+      "src": "label:\"Show only my builds\"",
+      "dest": "label:\"仅显示我的构建\""
     },
     {
       "src": "label:\"Enable Kubernetes\"",
@@ -467,30 +623,6 @@
     {
       "src": "children:\"Automatically download new updates in background.\"",
       "dest": "children:\"在后台自动下载新的更新。\""
-    },
-    {
-      "src": "label:\"Enable Docker Extensions\"",
-      "dest": "label:\"启用 Docker 扩展\""
-    },
-    {
-      "src": "children:\"Turning this option off will uninstall all extensions and disable all extension features.\"",
-      "dest": "children:\"关闭此选项将卸载所有扩展并禁用所有扩展功能。\""
-    },
-    {
-      "src": "label:\"Allow only extensions distributed through the Docker Marketplace\"",
-      "dest": "label:\"仅允许通过 Docker Marketplace 分发的扩展\""
-    },
-    {
-      "src": "children:\"This will prevent the ability to install any other extension via the Extension SDK tools.\"",
-      "dest": "children:\"这将阻止通过扩展 SDK 工具安装任何其他扩展。\""
-    },
-    {
-      "src": "label:\"Show Docker Extensions system containers\"",
-      "dest": "label:\"显示 Docker 扩展系统容器\""
-    },
-    {
-      "src": "children:\"Show Docker Desktop Extensions internal containers when using Docker commands.\"",
-      "dest": "children:\"使用 Docker 命令时显示 Docker Desktop 扩展 内部容器。\""
     },
     {
       "src": "Set your notification preferences for Docker Desktop.",
@@ -577,8 +709,8 @@
       "dest": "children:\"重置为出厂默认设置\""
     },
     {
-      "src": "Change settings",
-      "dest": "修改设置"
+      "src": "\"Settings...\":\"Change settings\"",
+      "dest": "\"设置...\":\"修改设置\""
     },
     {
       "src": "label:\"Check for updates\"",
@@ -597,12 +729,12 @@
       "dest": "label:\"Docker 中心\""
     },
     {
-      "src": "label:\"Extensions\"",
-      "dest": "label:\"扩展\""
-    },
-    {
       "src": "label:\"Kubernetes Context\"",
       "dest": "label:\"Kubernetes 上下文\""
+    },
+    {
+      "src": "label:\"Context\"",
+      "dest": "label:\"上下文\""
     },
     {
       "src": "label:\"Give feedback\"",
@@ -613,16 +745,108 @@
       "dest": "打开面板"
     },
     {
-      "src": "label:\"Quit Docker Desktop\"",
-      "dest": "label:\"退出 Docker Desktop\""
+      "src": "label:\"Personal\"",
+      "dest": "label:\"个人版\""
+    },
+    {
+      "src": " Tier`",
+      "dest": "等级`"
+    },
+    {
+      "src": "label:\"Upgrade\"",
+      "dest": "label:\"升级\""
+    },
+    {
+      "src": "label:\"Account Settings\"",
+      "dest": "label:\"账户设置\""
+    },
+    {
+      "src": "label:\"Sign Out\"",
+      "dest": "label:\"注销\""
+    },
+    {
+      "src": "\"Starting\":\"Resume\"",
+      "dest": "\"启动中\":\"恢复\""
     },
     {
       "src": "label:\"Restart\"",
       "dest": "label:\"重启\""
     },
     {
+      "src": "return\"Resource Saver mode\"",
+      "dest": "return\"节能模式\""
+    },
+    {
+      "src": "return\"Updating\"",
+      "dest": "return\"升级中\""
+    },
+    {
+      "src": "\"status unknown\"",
+      "dest": "\"状态未知\""
+    },
+    {
+      "src": "\"Start a container to exit this mode\"",
+      "dest": "\"启动一个容器就可退出该模式\""
+    },
+    {
+      "src": "\"Quit Docker Desktop\"",
+      "dest": "\"退出 Docker Desktop\""
+    },
+    {
+      "src": "\"Docker Engine is paused\"",
+      "dest": "\"Docker Engine 已暂停\""
+    },
+    {
+      "src": "\"The current state of all your containers was saved in memory, and all processes are frozen.\"",
+      "dest": "\"所有容器的当前状态都已保存在内存中，所有进程都被冻结。\""
+    },
+    {
+      "src": "children:\"Resume\"",
+      "dest": "children:\"恢复\""
+    },
+    {
+      "src": "children:\"Sign in\"",
+      "dest": "children:\"登录\""
+    },
+    {
+      "src": "n=\"Sign in\"",
+      "dest": "n=\"登录\""
+    },
+    {
       "src": "Sign in / Sign up",
       "dest": "登录 / 注册"
+    },
+    {
+      "src": "Running in Resource Saver mode",
+      "dest": "节能模式正在运行"
+    },
+    {
+      "src": "Docker Desktop failed to start",
+      "dest": "Docker Desktop 启动失败"
+    },
+    {
+      "src": "Docker Desktop is paused",
+      "dest": "Docker Desktop 已暂停"
+    },
+    {
+      "src": "Docker Desktop is blocked",
+      "dest": "Docker Desktop 已被阻"
+    },
+    {
+      "src": "Docker Desktop ${t}",
+      "dest": "Docker Desktop 运行中"
+    },
+    {
+      "src": "\"Docker Desktop paused\"",
+      "dest": "\"Docker Desktop 暂停中\""
+    },
+    {
+      "src": "\"Docker Desktop is running in Resource Saver mode\"",
+      "dest": "\"Docker Desktop 正在节能模式下运行\""
+    },
+    {
+      "src": "Kubernetes is running",
+      "dest": "Kubernetes 正在运行"
     },
     {
       "src": "label:\"Documentation\"",
@@ -631,6 +855,186 @@
     {
       "src": "\"Pausing\":\"Pause\"",
       "dest": "\"暂停中\":\"暂停\""
+    },
+    {
+      "src": "variant:\"h3\",children:\"General\"",
+      "dest": "variant:\"h3\",children:\"常规\""
+    },
+    {
+      "src": "variant:\"h3\",children:\"Docker Engine\"",
+      "dest": "variant:\"h3\",children:\"Docker 引擎\""
+    },
+    {
+      "src": "variant:\"h3\",children:\"Software updates\"",
+      "dest": "variant:\"h3\",children:\"软件更新\""
+    },
+    {
+      "src": "label:\"Update and restart\"",
+      "dest": "label:\"升级并重启\""
+    },
+    {
+      "src": "\"Restart\",\"Cancel\"",
+      "dest": "\"重启\",\"取消\""
+    },
+    {
+      "src": "message:\"Restart Docker Desktop\"",
+      "dest": "message:\"重启 Docker Desktop\""
+    },
+    {
+      "src": "return\"Downloading update…\"",
+      "dest": "return\"升级下载中…\""
+    },
+    {
+      "src": "return\"Update and restart\"",
+      "dest": "return\"升级并重启\""
+    },
+    {
+      "src": "\"Starting ...\":\"Stopping ...\"",
+      "dest": "\"启动 ...\":\"停止 ...\""
+    },
+    {
+      "src": "\"Apply\",a&&\" & restart\"",
+      "dest": "\"确认\",a&&\" & 重启\""
+    },
+    {
+      "src": "children:\"Cancel\"",
+      "dest": "children:\"取消\""
+    },
+    {
+      "src": "children:\"Learn more\"",
+      "dest": "children:\"了解更多\""
+    },
+    {
+      "src": "children:\"Upgrade\"",
+      "dest": "children:\"升级订阅\""
+    },
+    {
+      "src": "children:\"Give feedback\"",
+      "dest": "children:\"提供反馈\""
+    },
+    	{
+      "src": "\"Give feedback\",",
+      "dest": "\"提供反馈\","
+    },
+    {
+      "src": "children:\"You're up to date\"",
+      "dest": "children:\"当前是最新版\""
+    },
+    {
+      "src": "return\"You're up to date\"",
+      "dest": "return\"当前是最新版\""
+    },
+    {
+      "src": "is currently the newest version available.",
+      "dest": "是当前可用的最新版本。"
+    },
+    {
+      "src": "\"Search for images, containers, volumes, extensions and more...\"",
+      "dest": "\"搜索镜像，容器，卷柜，扩展以及更多...\""
+    },
+    {
+      "src": "label:\"Beta\"",
+      "dest": "label:\"测试\""
+    },
+    {
+      "src": "title:\"Terminal\"",
+      "dest": "title:\"终端\""
+    },
+    {
+      "src": "children:\"Terminal\"",
+      "dest": "children:\"终端\""
+    },
+    {
+      "src": "`Verifying credentials for",
+      "dest": "`正在验证邮箱"
+    },
+    {
+      "src": "\"Processing login data...\"",
+      "dest": "\"处理登录数据...\""
+    },
+    {
+      "src": "`You're now signed in as",
+      "dest": "`你现在登录为"
+    },
+    {
+      "src": "label:\"Search\"",
+      "dest": "label:\"搜索\""
+    },
+    {
+      "src": "children:\"Recent searches\"",
+      "dest": "children:\"最近搜索\""
+    },
+    {
+      "src": "children:\"Suggested\"",
+      "dest": "children:\"推荐\""
+    },
+    {
+      "src": "i=\"Image\"",
+      "dest": "i=\"镜像\""
+    },
+    {
+      "src": "i=\"Extension\"",
+      "dest": "i=\"扩展\""
+    },
+    {
+      "src": "i=\"Docs\"",
+      "dest": "i=\"文档\""
+    },
+    {
+      "src": "\"You are signed out\"",
+      "dest": "\"你已经登出\""
+    },
+    {
+      "src": "\"You must initialize pass before logging in to Docker Desktop\"",
+      "dest": "\"登录之前必须初始化密码\""
+    },
+    {
+      "src": "\"Sign in to share images and collaborate with your team\"",
+      "dest": "\"登录后可以共享镜像并进行团队协作\""
+    },
+    {
+      "src": "\"To view results from your remote repositories on Hub, sign in.\"",
+      "dest": "\"要查看中心服务器远程存储库的结果，请先登录。\""
+    },
+    {
+      "src": "\"Sign in\",",
+      "dest": "\"登录\","
+    },
+    {
+      "src": "label:\"Install\"",
+      "dest": "label:\"安装\""
+    },
+    {
+      "src": "children:\"Install\"",
+      "dest": "children:\"安装\""
+    },
+    {
+      "src": "text:\"Install\"",
+      "dest": "text:\"安装\""
+    },
+    {
+      "src": "children:\"Delete\"",
+      "dest": "children:\"删除\""
+    },
+    {
+      "src": "children:\"Notifications\"",
+      "dest": "children:\"通知\""
+    },
+    {
+      "src": "children:\"Dismiss all\"",
+      "dest": "children:\"全部清除\""
+    },
+    {
+      "src": "\"Just now\"",
+      "dest": "\"刚才\""
+    },
+    {
+      "src": "\"less than a minute ago\"",
+      "dest": "\"一分钟之前\""
+    },
+    {
+      "src": "minutes ago`",
+      "dest": "分钟之前`"
     }
   ]
 }
