@@ -17,6 +17,10 @@
       "dest": "label:\"构建\""
     },
     {
+      "src": "label:\"Docker Scout\"",
+      "dest": "label:\"监控\""
+    },
+    {
       "src": "title:\"Containers\"",
       "dest": "title:\"容器\""
     },
@@ -721,8 +725,8 @@
       "dest": "label:\"Docker Hub\",secondary:\"查找并与您的团队共享镜像。\""
     },
     {
-      "src": "label:\"Docker Scout\",secondary:\"Secure your supply chain at every level.\"",
-      "dest": "label:\"Docker 监控\",secondary:\"在每个层级保护您的供应链。\""
+      "src": "\"Secure your supply chain at every level.\"",
+      "dest": "\"在每个层级保护您的供应链。\""
     },
     {
       "src": "label:\"Docker Build Cloud\",secondary:\"Speed up your Docker Builds.\"",
@@ -1165,12 +1169,204 @@
       "dest": "\"每页条数:\""
     },
     {
+      "src": "\"Repositories per page\"",
+      "dest": "\"每页存储库数:\""
+    },
+    {
       "src": "\"Want to use Docker Scout on your remote repositories?\"",
       "dest": "\"想要在远程存储库上使用 Docker 监控?\""
     },
     {
       "src": "\"How to access Advanced image analysis\"",
       "dest": "\"如何访问高级镜像分析\""
+    },
+    {
+      "src": "\"From the Images view, select an image to view its details\"",
+      "dest": "\"从镜像页面，选择一个镜像以查看其详细信息\""
+    },
+    {
+      "src": "\"Find out about CVEs that are affecting your packages\"",
+      "dest": "\"了解影响您的软件包的漏洞\""
+    },
+    {
+      "src": "\"Explore recommended fixes to reduce your vulnerability count\"",
+      "dest": "\"探索建议的修复程序以减少漏洞数量\""
+    },
+    {
+      "src": "\"Find out if your base images are Docker Official Images and view the number of packages contained within them \"",
+      "dest": "\"了解您的基本镜像是否为 Docker 官方映像，并查看其中包含的软件包数量\""
+    },
+    {
+      "src": "\"Use the\"",
+      "dest": "\"使用\""
+    },
+    {
+      "src": "\"to analyze images and display vulnerabilities from your terminal.\"",
+      "dest": "\"分析镜像并显示来自终端的漏洞。\""
+    },
+    {
+      "src": "\"Learn more about Docker Scout\"",
+      "dest": "\"了解有关监控的更多信息。\""
+    },
+    {
+      "src": "\"You can explore the following documentation for details about Docker Scout:\"",
+      "dest": "\"您可以浏览以下文档，了解有关监控的详细信息:\""
+    },
+    {
+      "src": "\"Can't find what you're looking for?\"",
+      "dest": "\"找不到你要的？\""
+    },
+    {
+      "src": "children:\"Request an extension\"",
+      "dest": "children:\"请求扩展\""
+    },
+    {
+      "src": "children:\"Create an extension\"",
+      "dest": "children:\"创建扩展\""
+    },
+    {
+      "src": "children:\"to open\"",
+      "dest": "children:\"打开\""
+    },
+    {
+      "src": "children:\"to navigate\"",
+      "dest": "children:\"导航\""
+    },
+    {
+      "src": "children:\"to close\"",
+      "dest": "children:\"关闭\""
+    },
+    {
+      "src": "children:\"for more results\"",
+      "dest": "children:\"更多结果\""
+    },
+    {
+      "src": "children:`Last refresh: ${l}`",
+      "dest": "children:`上次刷新: ${l}`"
+    },
+    {
+      "src": "\"View container usage\"",
+      "dest": "\"查看容器使用情况\""
+    },
+    {
+      "src": "\"View packages and CVEs\"",
+      "dest": "\"查看软件包和漏洞\""
+    },
+    {
+      "src": "\"Copied to clipboard\":\"Copy docker run\"",
+      "dest": "\"已复制到剪贴板\":\"复制运行命令\""
+    },
+    {
+      "src": "\"Open in terminal\"",
+      "dest": "\"在终端中打开\""
+    },
+    {
+      "src": "\"Push to Docker Hub\"",
+      "dest": "\"推送到 Docker Hub\""
+    },
+    {
+      "src": "\"Show image actions\"",
+      "dest": "\"显示镜像操作\""
+    },
+    {
+      "src": "title:\"Filters\"",
+      "dest": "title:\"过滤器\""
+    },
+    {
+      "src": "inUse:\"In use\",unused:\"Unused\",dangling:\"Dangling\"",
+      "dest": "inUse:\"使用中\",unused:\"未使用\",dangling:\"悬空\""
+    },
+    {
+      "src": "\"No recommendation available at this time.\"",
+      "dest": "\"目前没有可用的建议。\""
+    },
+    {
+      "src": "\"This image has not been analyzed\"",
+      "dest": "\"此镜像尚未分析。\""
+    },
+    {
+      "src": "\"You can use Docker Scout to analyze local images and list its vulnerabilities.\"",
+      "dest": "\"您可以使用监控分析本地映像并列出其漏洞。\""
+    },
+    {
+      "src": "\"Run a new container\"",
+      "dest": "\"运行新容器\""
+    },
+    {
+      "src": "\"Optional settings\"",
+      "dest": "\"可选设置\""
+    },
+    {
+      "src": "\"A random name is generated if you do not provide one.\"",
+      "dest": "\"如果不提供名称，则会生成一个随机名称。\""
+    },
+    {
+      "src": "\"Enter “0” to assign randomly generated host ports.\"",
+      "dest": "\"输入“0” 以分配随机的主机端口。\""
+    },
+    {
+      "src": "\"Environment variables\"",
+      "dest": "\"环境变量\""
+    },
+    {
+      "src": "\"% of available CPU currently in use by containers. For example, with 4 available CPUs, the CPU usage can be up to 400%. Note that Docker will use some of the remaining CPU for system services like networking.\"",
+      "dest": "\"容器当前的 CPU 占用。例如，在4个可用 CPU 的情况下，CPU 使用率可高达 400%。请注意，Docker 将使用一些剩余的 CPU 用于系统服务，如网络。\""
+    },
+    {
+      "src": "\"Total amount of memory consumed by running container processes. Note that Docker will use available free memory for caching but this cache will be released when memory is needed by containers.\"",
+      "dest": "\"运行容器进程的内存占用。请注意，Docker 将使用一些空闲内存进行缓存，但是当容器需要时，此缓存将被释放。\""
+    },
+    {
+      "src": "\"Advanced image analysis can be accessed by viewing any of the images on the\"",
+      "dest": "\"高级镜像分析可以通过查镜像视图上的任何图像来访问\""
+    },
+    {
+      "src": "\"Sort by ASC\"",
+      "dest": "\"升序排列\""
+    },
+    {
+      "src": "\"Sort by DESC\"",
+      "dest": "\"降序排列\""
+    },
+    {
+      "src": "\"Pin to left\"",
+      "dest": "\"固定到左侧\""
+    },
+    {
+      "src": "\"Pin to right\"",
+      "dest": "\"固定到右侧\""
+    },
+    {
+      "src": "\"Unpin\"",
+      "dest": "\"取消固定\""
+    },
+    {
+      "src": "\"Hide column\"",
+      "dest": "\"隐藏列\""
+    },
+    {
+      "src": "\"Manage columns\"",
+      "dest": "\"管理列\""
+    },
+    {
+      "src": "\"Storage limit\"",
+      "dest": "\"存储限制\""
+    },
+    {
+      "src": "\"Full history supported\":\"History not supported\"",
+      "dest": "\"支持完整历史记录\":\"不支持历史记录\""
+    },
+    {
+      "src": "\"Supported platforms\"",
+      "dest": "\"支持的平台\""
+    },
+    {
+      "src": "\"Multi-platform ready\":\"Single platform\"",
+      "dest": "\"多平台\":\"单平台\""
+    },
+    {
+      "src": "\"Advanced Information\"",
+      "dest": "\"高级信息\""
     }
   ]
 }
