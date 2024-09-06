@@ -32,9 +32,11 @@ def run(root_path, config_path):
     file_paths = fp.recursive_listdir()
     log.info('汉化开始')
     for transformation in fp.get_transformations():
-        search_pattern = transformation['src']
+        search = transformation['src']
         replacement = transformation['dest']
-        fp.process_files(file_paths, search_pattern, replacement)
+        replaced = fp.process_files(file_paths, search, replacement)
+        if not replaced:
+            log.warn(search)
 
     DDProcessor(False)
 

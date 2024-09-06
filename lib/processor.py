@@ -9,7 +9,6 @@ import ctypes
 import json
 import multiprocessing
 import os
-import re
 import shutil
 import sys
 import winreg
@@ -112,26 +111,24 @@ class FileProcessor:
             yield transformation
 
     @staticmethod
-    def process_file(file_path, search_pattern, replacement):
+    def process_file(file_path, search, replacement):
         """
         如果你看到了这里，那么你极有可能改进此处，若真如此，建议你不要使用内存映射的方式来实现。
-        :param file_path:
-        :param search_pattern:
-        :param replacement:
+        :param file_path: 处理文件
+        :param search: 原始内容
+        :param replacement: 替换内容
         :return:
         """
-
-        pattern = re.compile(search_pattern)
-
         with open(file_path, 'r+', encoding='utf-8') as f:
             content = f.read()
-            if search_pattern in content:  # 检测是否存在匹配项
-                log.info(f"文件{file_path}：{search_pattern} -> {replacement}")
-                new_content = pattern.sub(replacement, content)
-                if new_content != content:
-                    f.seek(0)
-                    f.write(new_content)
-                    f.truncate()  # 如果新内容较短，则截断
+            new_content = content.replace(search, replacement)
+            if new_content != content:  # 检测是否存在匹配项
+                f.seek(0)
+                f.write(new_content)
+                f.truncate()  # 如果新内容较短，则截断
+                return True
+            else:
+                return False
 
     def process_files(self, file_paths, search_pattern, replacement):
         cpu_count = multiprocessing.cpu_count()
@@ -139,4 +136,6 @@ class FileProcessor:
             futures = [executor.submit(self.process_file, file_path, search_pattern, replacement) for file_path in
                        file_paths]
             for future in futures:
-                future.result()
+                if future.result():
+                    return True
+        return False

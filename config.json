@@ -17,10 +17,6 @@
       "dest": "label:\"构建\""
     },
     {
-      "src": "label:\"Docker Scout\"",
-      "dest": "label:\"监控\""
-    },
-    {
       "src": "title:\"Containers\"",
       "dest": "title:\"容器\""
     },
@@ -71,10 +67,6 @@
     {
       "src": "\"My Extensions\",",
       "dest": "\"我的扩展\","
-    },
-    {
-      "src": "\"Manage Extensions\":\"Extensions Marketplace\"",
-      "dest": "\"管理扩展\":\"扩展市场\""
     },
     {
       "src": "title:\"Add Extensions\"",
@@ -189,10 +181,6 @@
       "dest": "title:\"镜像用于运行容器\",description:\"您可以从 Dockerfile 构建镜像，也可以下载现有镜像以运行\",buttonTitle:\"搜索要运行的镜像\""
     },
     {
-      "src": "label:b,value:\"local\"",
-      "dest": "label:\"本地\",value:\"local\""
-    },
-    {
       "src": "label:\"Hub\",value:\"hub\"",
       "dest": "label:\"中心\",value:\"hub\""
     },
@@ -269,12 +257,12 @@
       "dest": "了解应用程序的依赖关系，分析漏洞，并根据建议的补救选项快速采取行动。"
     },
     {
-      "src": "label:\"General\"",
-      "dest": "label:\"常规\""
+      "src": "\"General\"",
+      "dest": "\"常规\""
     },
     {
-      "src": "label:\"Resources\"",
-      "dest": "label:\"资源\""
+      "src": "\"Resources\"",
+      "dest": "\"资源\""
     },
     {
       "src": "label:\"Docker Engine\"",
@@ -297,24 +285,24 @@
       "dest": "label:\"通知\""
     },
     {
-      "src": "label:\"Advanced\"",
-      "dest": "label:\"高级\""
+      "src": "\"Advanced\"",
+      "dest": "\"高级\""
     },
     {
       "src": "label:\"File sharing\"",
       "dest": "label:\"共享\""
     },
     {
-      "src": "label:\"Proxies\"",
-      "dest": "label:\"代理\""
+      "src": "\"Proxies\"",
+      "dest": "\"代理\""
     },
     {
-      "src": "label:\"Network\"",
-      "dest": "label:\"网络\""
+      "src": "\"Network\"",
+      "dest": "\"网络\""
     },
     {
-      "src": "label:\"WSL integration\"",
-      "dest": "label:\"WSL 集成\""
+      "src": "\"WSL integration\"",
+      "dest": "\"WSL 集成\""
     },
     {
       "src": "label:\"Start Docker Desktop when you sign in to your computer\"",
@@ -437,8 +425,8 @@
       "dest": "label:\"使用增强的容器隔离\""
     },
     {
-      "src": "Enhance security by preventing containers from breaching the Linux VM. ",
-      "dest": "通过防止容器破坏 Linux VM 来增强安全性。"
+      "src": "\"Enhance security by preventing containers from breaching the Linux VM.\"",
+      "dest": "\"通过防止容器破坏 Linux VM 来增强安全性。\""
     },
     {
       "src": "children:\"Must be signed in with a Business subscription\"",
@@ -485,8 +473,8 @@
       "dest": "variant:\"contained\",children:\"浏览\""
     },
     {
-      "src": "children:\\[\"Resource Saver\"",
-      "dest": "children:\\[\"资源节省\""
+      "src": "children:[\"Resource Saver\"",
+      "dest": "children:[\"资源节省\""
     },
     {
       "src": "label:\"Enable Resource Saver\"",
@@ -581,8 +569,8 @@
       "dest": "label:\"仅显示我的构建\""
     },
     {
-      "src": "label:\"Enable Kubernetes\"",
-      "dest": "label:\"启用 Kubernetes\""
+      "src": "\"Enable Kubernetes\"",
+      "dest": "\"启用 Kubernetes\""
     },
     {
       "src": "label:\"Show system containers (advanced)\"",
@@ -717,16 +705,40 @@
       "dest": "label:\"检查更新\""
     },
     {
-      "src": "label:\"Troubleshoot\"",
-      "dest": "label:\"故障排除\""
+      "src": "\"Troubleshoot\"",
+      "dest": "\"故障排除\""
     },
     {
       "src": "label:\"About Docker Desktop\"",
       "dest": "label:\"关于 Docker Desktop\""
     },
     {
-      "src": "label:\"Docker Hub\"",
-      "dest": "label:\"Docker 中心\""
+      "src": "label:\"Admin Console\",secondary:\"Manage users, control access, & set policies.\"",
+      "dest": "label:\"管理控制台\",secondary:\"管理用户、控制访问和设置策略。\""
+    },
+    {
+      "src": "label:\"Docker Hub\",secondary:\"Find and share images with your team.\"",
+      "dest": "label:\"Docker Hub\",secondary:\"查找并与您的团队共享镜像。\""
+    },
+    {
+      "src": "label:\"Docker Scout\",secondary:\"Secure your supply chain at every level.\"",
+      "dest": "label:\"Docker 监控\",secondary:\"在每个层级保护您的供应链。\""
+    },
+    {
+      "src": "label:\"Docker Build Cloud\",secondary:\"Speed up your Docker Builds.\"",
+      "dest": "label:\"Docker 构建云\",secondary:\"加速您的 Docker 构建。\""
+    },
+    {
+      "src": "label:\"Community Forums\",secondary:\"Get help from the community.\"",
+      "dest": "label:\"社区论坛\",secondary:\"从社区获得帮助。\""
+    },
+    {
+      "src": "label:\"System Status\",secondary:\"Check the status of Docker services.\"",
+      "dest": "label:\"系统状态\",secondary:\"检查 Docker 服务状态。\""
+    },
+    {
+      "src": "label:\"Docs\",secondary:\"Learn how to use Docker.\"",
+      "dest": "label:\"文档\",secondary:\"学习如何使用 Docker。\""
     },
     {
       "src": "label:\"Kubernetes Context\"",
@@ -757,12 +769,12 @@
       "dest": "label:\"升级\""
     },
     {
-      "src": "label:\"Account Settings\"",
-      "dest": "label:\"账户设置\""
+      "src": "\"Account Settings\"",
+      "dest": "\"账户设置\""
     },
     {
-      "src": "label:\"Sign Out\"",
-      "dest": "label:\"注销\""
+      "src": "\"Sign Out\"",
+      "dest": "\"注销\""
     },
     {
       "src": "\"Starting\":\"Resume\"",
@@ -833,20 +845,12 @@
       "dest": "Docker Desktop 已被阻"
     },
     {
-      "src": "Docker Desktop ${t}",
-      "dest": "Docker Desktop 运行中"
-    },
-    {
       "src": "\"Docker Desktop paused\"",
       "dest": "\"Docker Desktop 暂停中\""
     },
     {
       "src": "\"Docker Desktop is running in Resource Saver mode\"",
       "dest": "\"Docker Desktop 正在节能模式下运行\""
-    },
-    {
-      "src": "Kubernetes is running",
-      "dest": "Kubernetes 正在运行"
     },
     {
       "src": "label:\"Documentation\"",
@@ -912,7 +916,7 @@
       "src": "children:\"Give feedback\"",
       "dest": "children:\"提供反馈\""
     },
-    	{
+    {
       "src": "\"Give feedback\",",
       "dest": "\"提供反馈\","
     },
@@ -1035,6 +1039,138 @@
     {
       "src": "minutes ago`",
       "dest": "分钟之前`"
+    },
+    {
+      "src": "title:\"Starting the Docker Engine...\"",
+      "dest": "title:\"Docker 引擎启动中...\""
+    },
+    {
+      "src": "Use the WSL 2 based engine",
+      "dest": "使用基于 WSL 2 的引擎"
+    },
+    {
+      "src": "\"WSL 2 provides better performance than the Hyper-V backend. \"",
+      "dest": "\"WSL 2 提供了比 Hyper-V 后端更好的性能。\""
+    },
+    {
+      "src": "title:\"Engine total memory usage. This includes containers plus overheads.\"",
+      "dest": "title:\"引擎内存占用。 包含容器占用和其他间接占用。\""
+    },
+    {
+      "src": "title:\"Engine total CPU usage. This includes containers plus overheads.\"",
+      "dest": "title:\"引擎 CPU 占用。 包含容器占用和其他间接占用。\""
+    },
+    {
+      "src": "title:`Engine total disk usage. This includes containers plus overheads. Disk ${void 0===v?\"--.-- GB\":At(vt(v.availableBytes))} avail. of ${void 0===v?\"--.-- GB\":At(vt(v.totalBytes))}`",
+      "dest": "title:`引擎磁盘占用。包含容器占用和其他间接占用。 磁盘 ${void 0===v?\"--.-- GB\":At(vt(v.availableBytes))} 可用。 共 ${void 0===v?\"--.-- GB\":At(vt(v.totalBytes))}`"
+    },
+    {
+      "src": "children:[\"The Extensions Marketplace is managed by your organization. See\"",
+      "dest": "children:[\"扩展市场由您的组织管理。请参见\""
+    },
+    {
+      "src": "children:\"Docker Engine is the underlying technology that runs containers\"",
+      "dest": "children:\"Docker 引擎是运行容器的底层技术\""
+    },
+    {
+      "src": "label:\"Enable host networking\"",
+      "dest": "label:\"启用主机网络（Host）\""
+    },
+    {
+      "src": "label:\"Docker subnet\"",
+      "dest": "label:\"Docker 子网\""
+    },
+    {
+      "src": "children:\"Host networking allows containers that are started with --net=host to use localhost to connect to TCP and UDP services on the host. It will automatically allow software on the host to use localhost to connect to TCP and UDP services in the container. Sign in required.\"",
+      "dest": "children:\"主机网络允许以 --net=host 启动的容器使用 localhost 连接到主机上的 TCP 和 UDP 服务。它将自动允许主机上的软件使用 localhost 连接到容器中的 TCP 和 UDP 服务。需要登录。\""
+    },
+    {
+      "src": "children:\"Enable integration with additional distros:\"",
+      "dest": "children:\"启用与其他发行版的集成：\""
+    },
+    {
+      "src": "children:\"Start a Kubernetes single-node cluster when starting Docker Desktop.\"",
+      "dest": "children:\"启动 Docker Desktop 时启动 Kubernetes 单节点集群。\""
+    },
+    {
+      "src": "\"Beta features can be discontinued without notice.\"",
+      "dest": "\"Beat 功能可能在没有通知的情况下停用。\""
+    },
+    {
+      "src": "children:\"Beta features are initial releases of potential future features. Users who participate in our beta programs have the opportunity to validate and provide feedback on future functionality. This helps us focus our efforts on what provides the most value to our users.\"",
+      "dest": "children:\"Beta 功能是潜在的未来功能的初始版本。参与我们 beta 计划的用户有机会验证并提供有关未来功能的反馈。这有助于我们将精力集中为用户提供最大价值。\""
+    },
+    {
+      "src": "\"Enable Wasm, requires the\"",
+      "dest": "\"启用 Wasm，需要\""
+    },
+    {
+      "src": "children:\"containerd image store\"",
+      "dest": "children:\"容器镜像存储\""
+    },
+    {
+      "src": "\"Installs runtimes that lets you run\"",
+      "dest": "\"安装运行时以运行\""
+    },
+    {
+      "src": "children:\"Wasm workloads\"",
+      "dest": "children:\"Wasm 工作负载\""
+    },
+    {
+      "src": "\"Turn on Dev Environments\"",
+      "dest": "\"打开开发环境\""
+    },
+    {
+      "src": "\"Display the Dev Environments view in the Docker Dashboard.\"",
+      "dest": "\"在 Docker 面板中显示开发环境视图。\""
+    },
+    {
+      "src": "\"Check back for more features soon, or sign up for our\"",
+      "dest": "\"敬请期待，更多功能即将上线，或注册我们的\""
+    },
+    {
+      "src": "\"Experimental features can be discontinued without notice.\"",
+      "dest": "\"实验性功能可能在没有通知的情况下停用。\""
+    },
+    {
+      "src": "\"In each release, we may add features that we are currently experimenting with. These features are in the early stages of the product development lifecycle. This allows us to get early feedback and adjust the features as we work on them, so that we create experiences that our users love. If you turn this off, you lose access to experimental features.\"",
+      "dest": "\"在每个版本中，我们可能会添加一些实验性功能。这些功能处于产品开发生命周期的早期阶段，这使我们能够尽早获得反馈并调整功能，以便我们创造用户喜欢的体验。如果关闭此功能，则无法访问实验功能。\""
+    },
+    {
+      "src": "\"Access experimental features\"",
+      "dest": "\"访问实验性功能\""
+    },
+    {
+      "src": "\"Manage Synchronized file shares with Compose\"",
+      "dest": "\"使用 Compose 管理同步的文件共享\""
+    },
+    {
+      "src": "\"Compose automatically uses\"",
+      "dest": "\"Compose 自动使用\""
+    },
+    {
+      "src": "\"for bind mounts in Compose projects.\"",
+      "dest": "\"用于 Compose 项目中的绑定挂载。\""
+    },
+    {
+      "src": "\"Enable Compose Bridge command line\"",
+      "dest": "\"启用 Compose Bridge 命令行\""
+    },
+    {
+      "src": "\" Easily convert your Compose configuration to Kubernetes resources\"",
+      "dest": "\"将您的 Compose 配置轻松转换为 Kubernetes 资源\""
+    },
+    {
+      "src": "\"Rows per page:\"",
+      "dest": "\"每页条数:\""
+    },
+    {
+      "src": "\"Want to use Docker Scout on your remote repositories?\"",
+      "dest": "\"想要在远程存储库上使用 Docker 监控?\""
+    },
+    {
+      "src": "\"How to access Advanced image analysis\"",
+      "dest": "\"如何访问高级镜像分析\""
     }
   ]
 }
