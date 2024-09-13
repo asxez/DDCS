@@ -132,10 +132,11 @@ class FileProcessor:
 
     def process_files(self, file_paths, search_pattern, replacement):
         cpu_count = multiprocessing.cpu_count()
+        replaced = False
         with ThreadPoolExecutor(max_workers=cpu_count) as executor:
             futures = [executor.submit(self.process_file, file_path, search_pattern, replacement) for file_path in
                        file_paths]
             for future in futures:
                 if future.result():
-                    return True
-        return False
+                    replaced = True
+        return replaced
