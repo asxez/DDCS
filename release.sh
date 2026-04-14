@@ -18,7 +18,7 @@ fi
 # install 7z
 if [ ! -e "./7z/7zz" ]; then
   mkdir -p 7z
-  wget -q -O 7z/7z.tar.xz https://www.7-zip.org/a/7z2409-linux-x64.tar.xz
+  wget -q -O 7z/7z.tar.xz https://github.com/ip7z/7zip/releases/download/26.00/7z2600-linux-x64.tar.xz
   tar -xf 7z/7z.tar.xz -C 7z
 fi
 
