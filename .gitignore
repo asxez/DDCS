@@ -1,7 +1,6 @@
 .idea
 app
 app.asar.unpacked
-app.asar
-app-backup.asar
+*.asar
 test
 node_modules

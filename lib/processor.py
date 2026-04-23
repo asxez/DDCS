@@ -131,10 +131,10 @@ class FileProcessor:
         with open(file_path, 'r+', encoding='utf-8') as f:
             content = f.read()
             new_content = content.replace(search, replacement)
-            if new_content != content:  # 检测是否存在匹配项
+            if new_content != content:
                 f.seek(0)
                 f.write(new_content)
-                f.truncate()  # 如果新内容较短，则截断
+                f.truncate()
                 return True
             else:
                 return False

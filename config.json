@@ -317,16 +317,16 @@
       "dest": "\"WSL 集成\""
     },
     {
-      "src": "label:\"Start Docker Desktop when you sign in to your computer\"",
-      "dest": "label:\"开机自启动 Docker Desktop\""
+      "src": "\"Start Docker Desktop when you sign in to your computer\"",
+      "dest": "\"开机自启动 Docker Desktop\""
     },
     {
       "src": "label:\"Open Docker Dashboard when Docker Desktop starts\"",
       "dest": "label:\"启动时打开 Docker 面板\""
     },
     {
-      "src": "children:\"Choose theme for Docker Desktop\"",
-      "dest": "children:\"选择应用主题\""
+      "src": "\"Choose theme for Docker Desktop\"",
+      "dest": "\"选择应用主题\""
     },
     {
       "src": "label:\"Light\"",
@@ -377,8 +377,8 @@
       "dest": "\"定期检查您的配置，以确保其他应用程序没有进行意外更改。\""
     },
     {
-      "src": "children:\"Choose container terminal\"",
-      "dest": "children:\"选择容器终端\""
+      "src": "\"Choose container terminal\"",
+      "dest": "\"选择容器终端\""
     },
     {
       "src": "label:\"Integrated\"",
@@ -389,8 +389,8 @@
       "dest": "label:\"系统默认\""
     },
     {
-      "src": "children:\"Determines which terminal is launched when opening the terminal from a container.\"",
-      "dest": "children:\"确定从容器打开终端时启动哪个终端。\""
+      "src": "\"Determines which terminal is launched when opening the terminal from a container.\"",
+      "dest": "\"确定从容器打开终端时启动哪个终端。\""
     },
     {
       "src": "label:\"Enable Docker Debug by default\"",
@@ -421,16 +421,16 @@
       "dest": "label:\"使用容器拉取和存储镜像\""
     },
     {
-      "src": "children:\"The containerd image store enables native support for multi-platform images, attestations, Wasm, and more.\"",
-      "dest": "children:\"容器镜像存储支持对多平台镜像、证明、Wasm 等的原生支持。\""
+      "src": "\"The containerd image store enables native support for multi-platform images, attestations, Wasm, and more.\"",
+      "dest": "\"容器镜像存储支持对多平台镜像、证明、Wasm 等的原生支持。\""
     },
     {
       "src": "label:\"Send usage statistics\"",
       "dest": "label:\"发送使用情况统计信息\""
     },
     {
-      "src": "children:\"Send error reports, system version and language as well as Docker Desktop lifecycle information (e.g., starts, stops, resets).\"",
-      "dest": "children:\"发送错误报告、系统版本和语言以及 Docker Desktop 生命周期信息（例如，启动、停止、重置）。\""
+      "src": "\"Send error reports, system version and language as well as Docker Desktop lifecycle information (e.g., starts, stops, resets).\"",
+      "dest": "\"发送错误报告、系统版本和语言以及 Docker Desktop 生命周期信息（例如，启动、停止、重置）。\""
     },
     {
       "src": "label:\"Use Enhanced Container Isolation\"",
@@ -449,8 +449,8 @@
       "dest": "label:\"显示 CLI 提示\""
     },
     {
-      "src": "children:\"Get CLI hints and tips when running Docker commands in the CLI.\"",
-      "dest": "children:\"在 CLI 中运行 Docker 命令时获取 CLI 提示和技巧。\""
+      "src": "\"Get CLI hints and tips when running Docker commands in the CLI.\"",
+      "dest": "\"在 CLI 中运行 Docker 命令时获取 CLI 提示和技巧。\""
     },
     {
       "src": "label:\"SBOM indexing\"",
@@ -477,8 +477,8 @@
       "dest": "label:\"启用后台 Scout SBOM 索引\""
     },
     {
-      "src": "children:\"Automatically start Scout SBOM indexing of newly built or pulled images, and when an image is inspected.\"",
-      "dest": "children:\"当新构建、拉取以及检查镜像时自动启动 Scout SBOM 索引。\""
+      "src": "\"Automatically start Scout SBOM indexing of newly built or pulled images, and when an image is inspected.\"",
+      "dest": "\"当新构建、拉取以及检查镜像时自动启动 Scout SBOM 索引。\""
     },
     {
       "src": "children:\"You are using the WSL 2 backend, so resource limits are managed by Windows.\"",
@@ -1471,6 +1471,34 @@
     {
       "src": "description:\"Manage your volumes, view usage, and inspect their contents.\"",
       "dest": "description:\"管理卷柜，查看使用情况并检查其内容。\""
+    },
+    {
+      "src": "\"Engine running\"",
+      "dest": "\"引擎运行中\""
+    },
+    {
+      "src": "Enable Docker Model Runner",
+      "dest": "启用 Docker 模型运行器"
+    },
+    {
+      "src": "Enable host-side TCP support",
+      "dest": "启用主机端 TCP 支持"
+    },
+    {
+      "src": "Enable GPU-backed inference",
+      "dest": "启用 GPU后端 推理"
+    },
+    {
+      "src": "Only allow extensions distributed through the Docker Marketplace",
+      "dest": "只允许通过 Docker 市场分发的扩展"
+    },
+    {
+      "src": "Configure which types of notifications you'll receive inside Docker Desktop.",
+      "dest": "配置您将在 Docker Desktop 中接收的通知类型。"
+    },
+    {
+      "src": "No requests found",
+      "dest": "没有找到任何请求"
     }
   ]
 }
