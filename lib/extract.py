@@ -13,7 +13,7 @@ from lib.extract_config_manually import config_manually
 
 config_dict: Dict[str, Config] = {item.src: item for item in config}
 
-_re_text_vars = re.compile("(\{\d+})")
+_re_text_vars = re.compile(r"(\{\d+})")
 # 捕获组需要包含 [], 以找到正确的字符串结尾
 """
 _re_children_1_external 寻找第一个 child 为英文文本(大写开头)的 children, 例如:
@@ -83,7 +83,7 @@ class Dst:
 
         self.src = buf.getvalue()
         conf = config_dict.get(self.src)
-        self.dst = conf.src if conf else ""
+        self.dst = conf.dst if conf else ""
         self.args = args
 
     def __bool__(self):
@@ -122,13 +122,13 @@ class Text:
     args_len: int = 0
 
     def __init__(
-        self,
-        start: int,
-        fmt: str,
-        src: Union[str, List[str]],
-        raw: str = None,
-        args: List[str] = None,
-        args_len: int = 0,
+            self,
+            start: int,
+            fmt: str,
+            src: Union[str, List[str]],
+            raw: str = None,
+            args: List[str] = None,
+            args_len: int = 0,
     ):
         self.start = start
         self.fmt = fmt

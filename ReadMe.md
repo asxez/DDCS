@@ -7,15 +7,15 @@ master 分支目前支持 Windows / Mac。
 <big>**你可以在这个仓库找到各个版本的汉化包：【 https://github.com/asxez/DockerDesktop-CN 】**</big>
 
 ## 环境需求
-- python3.10+
-- nodejs
+- Python >= 3.10
+- Node.JS >= 22
 
 
 ## 使用方法
 下载源码，管理员权限启动终端并进入到源码根目录，使用以下命令安装依赖
 ```bash
-pip install black
-npm install -g asar
+pip install -r requirements.txt
+npm install
 ```
 使用以下命令进行汉化
 ```bash

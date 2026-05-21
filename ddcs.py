@@ -4,6 +4,7 @@
 #
 # @Time    : 2024/8/9 下午4:17
 # @Author  : ASXE
+
 import argparse
 import time
 from pathlib import Path
@@ -62,7 +63,8 @@ def run_v2(root_path: str, process_asar: bool):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--v2", action="store_true")
+    parser.add_argument("--legacy", action="store_true")
+    parser.add_argument("--v2", action="store_true", help=argparse.SUPPRESS)
     parser.add_argument("--root_path", type=str, default=None)
     args = parser.parse_args()
 
@@ -75,7 +77,7 @@ if __name__ == "__main__":
         process_asar = False
     print(root_path, process_asar)
     config_path = "./config.json"
-    if args.v2:
-        run_v2(root_path, process_asar)
-    else:
+    if args.legacy:
         run(root_path, config_path, process_asar)
+    else:
+        run_v2(root_path, process_asar)
