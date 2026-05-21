@@ -6,37 +6,52 @@ master 分支目前支持 Windows / Mac。
 
 <big>**你可以在这个仓库找到各个版本的汉化包：【 https://github.com/asxez/DockerDesktop-CN 】**</big>
 
+Release 中的汉化包为 `app-*.zip`：
+- Windows 包含 `app.asar`、`app.asar.unpacked` 和已同步完整性校验的 `Docker Desktop.exe`。
+- macOS / Linux 包含 `app.asar` 和 `app.asar.unpacked`。
+
 ## 环境需求
 - Python >= 3.10
 - Node.JS >= 22
 
 
 ## 使用方法
-下载源码，管理员权限启动终端并进入到源码根目录，使用以下命令安装依赖
+下载源码，管理员权限启动终端并进入到源码根目录，使用以下命令安装依赖。
+
 ```bash
 pip install -r requirements.txt
 npm install
 ```
-使用以下命令进行汉化
+
+使用以下命令进行汉化。
+
 ```bash
 python ddcs.py
 ```
-注意：请务必使用管理员权限启动终端。
 
-## 自动提取 (Beta)
+注意：
+- Windows 请务必使用管理员权限启动终端。
+- Docker Desktop 4.74.0 及以上版本会校验 `app.asar` 完整性。脚本会在替换 `app.asar` 后同步更新 `Docker Desktop.exe` 中的 asar header hash；如果没有管理员权限，脚本会提前报错，Docker Desktop 将无法正常启动。
+- 如需使用旧版 `config.json` 精确替换逻辑，可运行 `python ddcs.py --legacy`。
+
+## 自动提取
 
 通过正则和简单的代码分析, 自动提取出 Docker Desktop 页面中出现的文本,
 并保存到 [extract_config.py](./lib/extract_config.py).
 
 ### 对于使用者
 
-目前自动提取翻译属于 Beta 状态, 因此需要在使用 ddcs.py 时显式地声明使用 v2, 即
+目前 `ddcs.py` 默认使用自动提取替换逻辑，直接运行：
 
 ```bash
-python ddcs.py --v2
+python ddcs.py
 ```
 
 ### 对于翻译者 & 开发者
+
+#### Docker Desktop 4.74.0+ 完整性校验
+
+4.74.0 起，Windows 版 Docker Desktop 会在 `Docker Desktop.exe` 中记录 `resources\app.asar` 的完整性信息。这里的 hash 是 `app.asar` header JSON 的 SHA256，不是整个 `app.asar` 文件的 SHA256。修改或重新打包 `app.asar` 后，必须同步更新该 hash，否则 Electron 会报 `Integrity check failed for asar archive` 并拒绝启动。
 
 1. 运行自动提取 (仅在 Docker Desktop 发布新版本后需要)
 
@@ -89,7 +104,7 @@ python ddcs.py --v2
 3. 验证翻译
 
     ```bash
-    python ddcs.py --v2
+    python ddcs.py
     ```
    替换后启动 Docker Desktop, 验证各个页面. 因为自动提取显然不可能足够精准, 因此可能会:
     - 遗漏部分内容. 表现: 某些地方仍为英文; 解决方法: 添加到 extract_config_manually.py 或者优化 extract.py
@@ -100,12 +115,6 @@ python ddcs.py --v2
 有问题的可以扫码加群咨询。
 ![](images/1.jpg)
 
-[//]: # (## 更新历史)
-
-[//]: # (2024.8.13 发布MAC版本)
-
-[//]: # ()
-[//]: # (2024.8.10 发布首个汉化脚本版本。)
 
 ## Stars
 如果你觉得本仓库对你有用，或者你对本仓库感兴趣，欢迎Star。

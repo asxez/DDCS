@@ -1,4 +1,9 @@
 .idea
+__pycache__/
+*.py[cod]
+tmp
+dist
+7z
 app
 app.asar.unpacked
 *.asar
