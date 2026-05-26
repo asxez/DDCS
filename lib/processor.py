@@ -310,13 +310,6 @@ class FileProcessor:
 
     @staticmethod
     def process_file(file_path, search, replacement):
-        """
-        如果你看到了这里，那么你极有可能改进此处，若真如此，建议你不要使用内存映射的方式来实现。
-        :param file_path: 处理文件
-        :param search: 原始内容
-        :param replacement: 替换内容
-        :return:
-        """
         with open(file_path, 'r+', encoding='utf-8') as f:
             content = f.read()
             new_content = content.replace(search, replacement)
