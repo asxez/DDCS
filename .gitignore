@@ -9,3 +9,5 @@ app.asar.unpacked
 *.asar
 test
 node_modules
+.codegraph
+package-lock.json
