@@ -9,6 +9,7 @@ import json
 import multiprocessing
 import os
 import platform
+import plistlib
 import re
 import shutil
 import subprocess
@@ -80,8 +81,8 @@ class DDProcessor:
                 shutil.copy(self.resource_path / "app.asar", cwd)
                 shutil.copy(self.resource_path / "app.asar", cwd / "app-backup.asar")
             else:
-                executable_path = self.resource_path.parent / "Docker Desktop.exe"
-                self.check_asar_integrity_writable(cwd / "app.asar", executable_path)
+                integrity_path = self.get_integrity_path()
+                self.check_asar_integrity_writable(cwd / "app.asar", integrity_path)
                 shutil.copy(cwd / "app.asar", self.resource_path)
                 local_unpacked = cwd / "app.asar.unpacked"
                 target_unpacked = self.resource_path / "app.asar.unpacked"
@@ -89,10 +90,18 @@ class DDProcessor:
                     if target_unpacked.exists():
                         shutil.rmtree(target_unpacked)
                     shutil.copytree(local_unpacked, target_unpacked)
-                self.update_asar_integrity(cwd / "app.asar", executable_path)
+                self.update_asar_integrity(cwd / "app.asar", integrity_path)
         except Exception as e:
             log.error(f"文件复制时出错: {str(e)}")
             sys.exit()
+
+    def get_integrity_path(self):
+        system = platform.system()
+        if system == "Windows":
+            return self.resource_path.parent / "Docker Desktop.exe"
+        if system == "Darwin":
+            return self.resource_path.parent / "Info.plist"
+        return None
 
     @staticmethod
     def remove_work_path(path: Path):
@@ -163,18 +172,22 @@ class DDProcessor:
         return None
 
     @staticmethod
-    def update_asar_integrity(asar_path: Path, executable_path: Path):
-        if platform.system() != "Windows":
+    def update_asar_integrity(asar_path: Path, integrity_path: Path):
+        system = platform.system()
+        if system == "Darwin":
+            DDProcessor.update_macos_asar_integrity(asar_path, integrity_path)
             return
-        if not executable_path.exists():
-            log.warn(f"未找到 Docker Desktop 可执行文件，跳过 asar 完整性更新: {executable_path}")
+        if system != "Windows":
+            return
+        if not integrity_path.exists():
+            log.warn(f"未找到 Docker Desktop 可执行文件，跳过 asar 完整性更新: {integrity_path}")
             return
 
         new_hash = DDProcessor.get_asar_integrity_hash(asar_path).encode("ascii")
         integrity_pattern = re.compile(
             rb'("file":"resources\\\\app\.asar","alg":"SHA256","value":")([0-9a-fA-F]{64})(")'
         )
-        data = executable_path.read_bytes()
+        data = integrity_path.read_bytes()
         old_hashes = {match.group(2).decode("ascii").lower() for match in integrity_pattern.finditer(data)}
         if not old_hashes:
             log.warn("未找到 app.asar 完整性校验信息，跳过更新")
@@ -186,21 +199,21 @@ class DDProcessor:
             return
 
         try:
-            with executable_path.open("r+b"):
+            with integrity_path.open("r+b"):
                 pass
         except PermissionError as e:
-            raise PermissionError(f"没有权限更新 asar 完整性校验，请使用管理员权限运行脚本: {executable_path}") from e
+            raise PermissionError(f"没有权限更新 asar 完整性校验，请使用管理员权限运行脚本: {integrity_path}") from e
 
-        backup_path = executable_path.with_name(executable_path.name + ".bak")
+        backup_path = integrity_path.with_name(integrity_path.name + ".bak")
         if not backup_path.exists():
             try:
-                shutil.copy2(executable_path, backup_path)
+                shutil.copy2(integrity_path, backup_path)
             except PermissionError:
-                backup_path = Path.cwd() / (executable_path.name + ".bak")
+                backup_path = Path.cwd() / (integrity_path.name + ".bak")
                 if not backup_path.exists():
-                    shutil.copy2(executable_path, backup_path)
+                    shutil.copy2(integrity_path, backup_path)
                 log.warn(f"安装目录不可写，已将 Docker Desktop.exe 备份到: {backup_path}")
-        with executable_path.open("r+b") as writer:
+        with integrity_path.open("r+b") as writer:
             for match in matches:
                 writer.seek(match.start(2))
                 writer.write(new_hash)
@@ -208,23 +221,90 @@ class DDProcessor:
         log.info(f"已更新 asar 完整性校验: {old_hash_text} -> {new_hash.decode('ascii')}")
 
     @staticmethod
-    def check_asar_integrity_writable(asar_path: Path, executable_path: Path):
-        if platform.system() != "Windows" or not executable_path.exists():
+    def update_macos_asar_integrity(asar_path: Path, info_plist_path: Path):
+        if not info_plist_path or not info_plist_path.exists():
+            log.warn(f"未找到 Docker Desktop Info.plist，跳过 asar 完整性更新: {info_plist_path}")
+            return
+
+        raw = info_plist_path.read_bytes()
+        plist_format = plistlib.FMT_BINARY if raw.startswith(b"bplist") else plistlib.FMT_XML
+        plist = plistlib.loads(raw)
+        integrity = plist.get("ElectronAsarIntegrity")
+        if not isinstance(integrity, dict):
+            log.warn("未找到 ElectronAsarIntegrity，跳过 macOS asar 完整性更新")
+            return
+
+        archive_key = next((key for key in integrity if key.lower() == "resources/app.asar"), "Resources/app.asar")
+        entry = integrity.get(archive_key)
+        if not isinstance(entry, dict):
+            entry = {"algorithm": "SHA256"}
+            integrity[archive_key] = entry
+
+        new_hash = DDProcessor.get_asar_integrity_hash(asar_path)
+        old_hash = entry.get("hash")
+        if old_hash == new_hash:
+            log.info("macOS asar 完整性校验已是最新")
+            return
+
+        try:
+            with info_plist_path.open("r+b"):
+                pass
+        except PermissionError as e:
+            raise PermissionError(f"没有权限更新 macOS asar 完整性校验，请使用管理员权限运行脚本: {info_plist_path}") from e
+
+        backup_path = info_plist_path.with_name(info_plist_path.name + ".bak")
+        if not backup_path.exists():
+            shutil.copy2(info_plist_path, backup_path)
+
+        entry["algorithm"] = "SHA256"
+        entry["hash"] = new_hash
+        info_plist_path.write_bytes(plistlib.dumps(plist, fmt=plist_format, sort_keys=False))
+        log.info(f"已更新 macOS asar 完整性校验: {old_hash} -> {new_hash}")
+
+    @staticmethod
+    def check_asar_integrity_writable(asar_path: Path, integrity_path: Path):
+        system = platform.system()
+        if system == "Darwin":
+            DDProcessor.check_macos_asar_integrity_writable(asar_path, integrity_path)
+            return
+        if system != "Windows" or not integrity_path.exists():
             return
 
         new_hash = DDProcessor.get_asar_integrity_hash(asar_path).encode("ascii")
         integrity_pattern = re.compile(
             rb'("file":"resources\\\\app\.asar","alg":"SHA256","value":")([0-9a-fA-F]{64})(")'
         )
-        matches = list(integrity_pattern.finditer(executable_path.read_bytes()))
+        matches = list(integrity_pattern.finditer(integrity_path.read_bytes()))
         if not matches or all(match.group(2).lower() == new_hash for match in matches):
             return
 
         try:
-            with executable_path.open("r+b"):
+            with integrity_path.open("r+b"):
                 pass
         except PermissionError as e:
-            raise PermissionError(f"没有权限更新 asar 完整性校验，请使用管理员权限运行脚本: {executable_path}") from e
+            raise PermissionError(f"没有权限更新 asar 完整性校验，请使用管理员权限运行脚本: {integrity_path}") from e
+
+    @staticmethod
+    def check_macos_asar_integrity_writable(asar_path: Path, info_plist_path: Path):
+        if not info_plist_path or not info_plist_path.exists():
+            return
+
+        plist = plistlib.loads(info_plist_path.read_bytes())
+        integrity = plist.get("ElectronAsarIntegrity")
+        if not isinstance(integrity, dict):
+            return
+
+        archive_key = next((key for key in integrity if key.lower() == "resources/app.asar"), None)
+        entry = integrity.get(archive_key) if archive_key else None
+        old_hash = entry.get("hash") if isinstance(entry, dict) else None
+        if old_hash == DDProcessor.get_asar_integrity_hash(asar_path):
+            return
+
+        try:
+            with info_plist_path.open("r+b"):
+                pass
+        except PermissionError as e:
+            raise PermissionError(f"没有权限更新 macOS asar 完整性校验，请使用管理员权限运行脚本: {info_plist_path}") from e
 
     @staticmethod
     def get_asar_integrity_hash(asar_path: Path):
