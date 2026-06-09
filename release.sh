@@ -82,6 +82,49 @@ with exe_path.open("r+b") as writer:
 PY
 }
 
+function patch_macos_integrity() {
+    local asar_path=$1
+    local plist_path=$2
+    local new_hash
+    new_hash=$(asar_header_hash "${asar_path}")
+
+    python - "${plist_path}" "${new_hash}" <<'PY'
+import sys
+import plistlib
+from pathlib import Path
+
+plist_path = Path(sys.argv[1])
+new_hash = sys.argv[2]
+
+if not plist_path.exists():
+    print(f"warning: Info.plist not found in {plist_path}", file=sys.stderr)
+    sys.exit(0)
+
+raw = plist_path.read_bytes()
+plist_format = plistlib.FMT_BINARY if raw.startswith(b"bplist") else plistlib.FMT_XML
+plist = plistlib.loads(raw)
+integrity = plist.get("ElectronAsarIntegrity")
+if not isinstance(integrity, dict):
+    print("warning: ElectronAsarIntegrity not found in Info.plist", file=sys.stderr)
+    sys.exit(0)
+
+archive_key = next((key for key in integrity if key.lower() == "resources/app.asar"), "Resources/app.asar")
+entry = integrity.get(archive_key)
+if not isinstance(entry, dict):
+    entry = {"algorithm": "SHA256"}
+    integrity[archive_key] = entry
+
+entry["algorithm"] = "SHA256"
+entry["hash"] = new_hash
+
+backup_path = plist_path.with_name(plist_path.name + ".bak")
+if not backup_path.exists():
+    backup_path.write_bytes(raw)
+
+plist_path.write_bytes(plistlib.dumps(plist, fmt=plist_format, sort_keys=False))
+PY
+}
+
 function pack_asar() {
     local source_dir=$1
     local original_unpacked=$2
@@ -117,6 +160,7 @@ function ddcs() {
     elif [[ $arch == Mac* ]]; then
         src="Docker/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Resources"
         exe_path=""
+        plist_path="tmp/${arch}/Docker/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Info.plist"
     elif [[ $arch == Debian* ]]; then
         tar -xf "tmp/${arch}/data.tar" -C "tmp/${arch}"
         src="opt/docker-desktop/resources"
@@ -138,6 +182,9 @@ function ddcs() {
     if [[ $arch == Windows* ]]; then
         patch_windows_integrity "tmp/package-${arch}/app.asar" "${exe_path}"
         cp "${exe_path}" "tmp/package-${arch}/Docker Desktop.exe"
+    elif [[ $arch == Mac* ]]; then
+        patch_macos_integrity "tmp/package-${arch}/app.asar" "${plist_path}"
+        cp "${plist_path}" "tmp/package-${arch}/Info.plist"
     fi
 
     (
@@ -156,6 +203,7 @@ ddcs "DockerDesktop-${version}-Debian-x86.deb"
 notes="DockerDesktop ${version} 版本安装程序及汉化包.
 
 汉化包为 app-*.zip，包含 app.asar 和 app.asar.unpacked。
-Windows 汉化包额外包含已同步 app.asar header hash 的 Docker Desktop.exe，用于 Docker Desktop 4.74.0+ 的完整性校验。"
+Windows 汉化包额外包含已同步 app.asar header hash 的 Docker Desktop.exe，用于 Docker Desktop 4.74.0+ 的完整性校验。
+Mac 汉化包额外包含已同步 app.asar header hash 的 Info.plist，用于 macOS 环境的完整性校验。"
 
 gh release create "${version}" --repo "${target_repo}" --notes "$notes" ./dist/*
