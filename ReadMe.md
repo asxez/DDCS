@@ -31,7 +31,7 @@ python ddcs.py
 
 注意：
 - Windows 请务必使用管理员权限启动终端。
-- Docker Desktop 4.74.0 及以上版本会校验 `app.asar` 完整性。脚本会在替换 `app.asar` 后同步更新 `Docker Desktop.exe` 中的 asar header hash；如果没有管理员权限，脚本会提前报错，Docker Desktop 将无法正常启动。
+- Docker Desktop 4.74.0 及以上版本会校验 `app.asar` 完整性。Windows 会在 `Docker Desktop.exe` 中记录 asar header hash，macOS 4.76.0 会在 `Docker Desktop.app/Contents/Info.plist` 的 `ElectronAsarIntegrity` 中记录该 hash。脚本会在替换 `app.asar` 后同步更新这些校验信息；如果没有管理员权限，脚本会提前报错，Docker Desktop 将无法正常启动。
 - 如需使用旧版 `config.json` 精确替换逻辑，可运行 `python ddcs.py --legacy`。
 
 ## 自动提取
@@ -51,7 +51,7 @@ python ddcs.py
 
 #### Docker Desktop 4.74.0+ 完整性校验
 
-4.74.0 起，Windows 版 Docker Desktop 会在 `Docker Desktop.exe` 中记录 `resources\app.asar` 的完整性信息。这里的 hash 是 `app.asar` header JSON 的 SHA256，不是整个 `app.asar` 文件的 SHA256。修改或重新打包 `app.asar` 后，必须同步更新该 hash，否则 Electron 会报 `Integrity check failed for asar archive` 并拒绝启动。
+4.74.0 起，Windows 版 Docker Desktop 会在 `Docker Desktop.exe` 中记录 `resources\app.asar` 的完整性信息；macOS 4.76.0 会在内层 `Docker Desktop.app/Contents/Info.plist` 的 `ElectronAsarIntegrity` 中记录 `Resources/app.asar` 的完整性信息。这里的 hash 是 `app.asar` header JSON 的 SHA256，不是整个 `app.asar` 文件的 SHA256。修改或重新打包 `app.asar` 后，必须同步更新该 hash，否则 Electron 会报 `Integrity check failed for asar archive` 并拒绝启动。
 
 1. 运行自动提取 (仅在 Docker Desktop 发布新版本后需要)
 
